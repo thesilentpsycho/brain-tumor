@@ -46,13 +46,17 @@ To activate our conda environment:
 source activate /panasas/scratch/grp-lsmatott/ve/condaclone
 
 Clone a conda env:
+module load python/py38-anaconda-2021.05
 conda create --clone deepfacelab -p /panasas/scratch/grp-lsmatott/ve/condaclone
 
 List python packages installed in our env:
+module load python/py38-anaconda-2021.05
 conda list -p /panasas/scratch/grp-lsmatott/ve/condaclone
 
-Upgrade a package inside our conda env:
+Upgrade a package inside our conda env. First activate the env:
+module load python/py38-anaconda-2021.05
 pip install numpy --upgrade --upgrade-strategy only-if-needed
 
-Install a package inside our conda env:
+Install a package inside our conda env.
+module load python/py38-anaconda-2021.05
 conda install -p /panasas/scratch/grp-lsmatott/ve/condaclone scikit-learn
