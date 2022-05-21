@@ -1,0 +1,43 @@
+Note: Do not use pip install directly. Assume that CCR doesn't use external pip.
+First activate the conda environment as below and then work on it.
+
+Tensorflow, Cuda, cudnn, cudatoolkit all of them are installed inside this env and versions are compatible with the GPU we are using on CCR.
+So, try not to touch the versions of the above four libraries.
+
+To activate our conda environment:
+source activate /panasas/scratch/grp-lsmatott/ve/condaclone
+
+Clone a conda env:
+conda create --clone deepfacelab -p /panasas/scratch/grp-lsmatott/ve/condaclone
+
+Upgrade a package inside our conda env:
+pip install numpy --upgrade --upgrade-strategy only-if-needed
+
+Install a package inside our conda env:
+conda install -p /panasas/scratch/grp-lsmatott/ve/condaclone scikit-learn
+
+Steps:
+
+Copy your code to CCR:
+1. scp your folder to vortex
+scp -r vgg19/ yrathi@vortex.ccr.buffalo.edu:~
+
+SSH into vortex:
+ssh yrathi@vortex.ccr.buffalo.edu
+
+Submit Job:
+cd vgg19
+sbatch slurm.sh
+
+To check the status of your job:
+squeue | grep yrathi
+
+A job ID [JOB_ID] will also be displayed along with the status (R - Running, PD - Pending). use this id below to cancel
+
+To cancel the job:
+scancel [JOB_ID]
+
+After successful completion:
+Two files will be generated
+[JOB_ID].stdout -> terminal output file
+[JOB_ID].stderr -> any errors that occurred
