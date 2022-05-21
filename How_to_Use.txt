@@ -10,19 +10,10 @@ The path to our conda env is:
 Note that there is no name for this conda env. So you shall not use -n switch with conda commands which is for specifying conda env name
 Rather use -p switch to specify path to our env wherever name is required
 
-To activate our conda environment:
-source activate /panasas/scratch/grp-lsmatott/ve/condaclone
-
-Clone a conda env:
-conda create --clone deepfacelab -p /panasas/scratch/grp-lsmatott/ve/condaclone
-
-Upgrade a package inside our conda env:
-pip install numpy --upgrade --upgrade-strategy only-if-needed
-
-Install a package inside our conda env:
-conda install -p /panasas/scratch/grp-lsmatott/ve/condaclone scikit-learn
 
 Steps:
+
+Below commands assume our project folder is named vgg19 and username is yrathi.
 
 Copy your code to CCR:
 1. scp your folder to vortex
@@ -47,3 +38,21 @@ After successful completion:
 Two files will be generated
 [JOB_ID].stdout -> terminal output file
 [JOB_ID].stderr -> any errors that occurred
+
+
+Other helpful commands:
+
+To activate our conda environment:
+source activate /panasas/scratch/grp-lsmatott/ve/condaclone
+
+Clone a conda env:
+conda create --clone deepfacelab -p /panasas/scratch/grp-lsmatott/ve/condaclone
+
+List python packages installed in our env:
+conda list -p /panasas/scratch/grp-lsmatott/ve/condaclone
+
+Upgrade a package inside our conda env:
+pip install numpy --upgrade --upgrade-strategy only-if-needed
+
+Install a package inside our conda env:
+conda install -p /panasas/scratch/grp-lsmatott/ve/condaclone scikit-learn
