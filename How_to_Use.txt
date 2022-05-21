@@ -4,6 +4,12 @@ First activate the conda environment as below and then work on it.
 Tensorflow, Cuda, cudnn, cudatoolkit all of them are installed inside this env and versions are compatible with the GPU we are using on CCR.
 So, try not to touch the versions of the above four libraries.
 
+The path to our conda env is:
+/panasas/scratch/grp-lsmatott/ve/condaclone
+
+Note that there is no name for this conda env. So you shall not use -n switch with conda commands which is for specifying conda env name
+Rather use -p switch to specify path to our env wherever name is required
+
 To activate our conda environment:
 source activate /panasas/scratch/grp-lsmatott/ve/condaclone
 
