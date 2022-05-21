@@ -5,7 +5,7 @@
 ####### CUSTOMIZE THIS SECTION FOR YOUR JOB
 #SBATCH --job-name="pikapika"
 #SBATCH --nodes=1
-#SBATCH --gres=gpu:tesla_v100-pcie-16gb:1
+#SBATCH --gres=gpu:tesla_v100-pcie-32gb:1
 #SBATCH --output=%j.stdout
 #SBATCH --error=%j.stderr
 #SBATCH --time=08:00:00

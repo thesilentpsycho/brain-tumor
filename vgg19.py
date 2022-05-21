@@ -60,6 +60,17 @@ from IPython.display import display
 
 # %% [code]
 print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
+gpus = tf.config.experimental.list_physical_devices('GPU')
+if gpus:
+  try:
+    for gpu in gpus:
+      tf.config.experimental.set_memory_growth(gpu, True)
+  except RuntimeError as e:
+    print(e)
+
+# config = tf.compat.v1.ConfigProto()
+# config.gpu_options.allow_growth = True
+# sess = tf.compat.v1.Session(config=config)
 
 # %% [markdown]
 # # Prepare dataset
@@ -409,7 +420,7 @@ model = load_model("seg_model.h5",
 # ## Model Evaluation
 
 # %% [code]
-history.history.keys()
+# history.history.keys()
 
 # %% [code]
 # plt.figure(figsize=(12, 5))
@@ -476,12 +487,12 @@ def prediction(test, model_seg):
 # %% [code]
 # making prediction
 df_pred = prediction(X_test, model)
-print(df_pred)
+# print(df_pred)
 
 # %% [code]
 # merging original and prediction df
 df_pred = X_test.merge(df_pred, on='image_path')
-print(df_pred.head(10))
+# print(df_pred.head(10))
 
 # %% [code]
 # visualizing prediction
